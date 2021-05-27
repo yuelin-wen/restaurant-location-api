@@ -36,7 +36,7 @@ app.post("/api/restaurants", (req, res) => {
         })
 });
 app.get("/api/restaurants", (req, res) => {
-    let page = req.query.page
+    let page = req.query.page;
     let perPage = req.query.perPage;
     let borough = (req.query.borough) ? req.query.borough : "not given";
     db.getAllRestaurants(page, perPage, borough)
@@ -44,7 +44,7 @@ app.get("/api/restaurants", (req, res) => {
             res.status(200).json({ message: `Restaurant object is located at page ${page}, there is ${perPage} per page, and the location is ${borough}.` });
         })
         .catch(err => {
-            res.json(`oops! error found ` + err);
+            res.status(404).json(`oops! error found ` + err);
         })
 });
 app.get("/api/restaurants/:id", (req, res) => {
@@ -68,7 +68,7 @@ app.put("/api/restaurants/:id", (req, res) => {
 app.delete("/api/restaurants/:id", (req, res) => {
     db.deleteRestaurantById(req.params.id)
         .then(msg => {
-            res.status(204).json(msg).end();
+            res.status(204).end();
         })
         .catch(err => {
             res.status(400).json({ "message": "Failed to delete, Resource not found" + err });
