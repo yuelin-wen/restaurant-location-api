@@ -40,8 +40,8 @@ app.get("/api/restaurants", (req, res) => {
     let perPage = req.query.perPage;
     let borough = (req.query.borough) ? req.query.borough : "not given";
     db.getAllRestaurants(page, perPage, borough)
-        .then(() => {
-            res.status(200).json({ message: `Restaurant object is located at page ${page}, there is ${perPage} per page, and the location is ${borough}.` });
+        .then((data) => {
+            res.status(200).json(data);
         })
         .catch(err => {
             res.status(404).json(`oops! error found ` + err);
