@@ -36,10 +36,7 @@ app.post("/api/restaurants", (req, res) => {
         })
 });
 app.get("/api/restaurants", (req, res) => {
-    let page = req.query.page;
-    let perPage = req.query.perPage;
-    let borough = (req.query.borough) ? req.query.borough : "not given";
-    db.getAllRestaurants(page, perPage, borough)
+    db.getAllRestaurants(req.query.page, req.query.perPage, req.query.borough)
         .then((data) => {
             res.status(200).json(data);
         })
