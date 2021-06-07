@@ -89,7 +89,3 @@ db.initialize().then(() => {
 }).catch((err) => {
     console.log(err);
 });
-
-// app.listen(HTTP_PORT, () => {
-//     console.log("Ready to handle requests on port " + HTTP_PORT);
-// });
