@@ -14,7 +14,7 @@ const app = express();
 const HTTP_PORT = process.env.PORT || 8080;
 const cors = require('cors');
 const RestaurantDB = require("./modules/restaurantDB.js");
-const db = new RestaurantDB("mongodb+srv://q153212546:Wyl960524.@cluster0.4vbtp.mongodb.net/sample_restaurants?retryWrites=true&w=majority");
+const db = new RestaurantDB("mongodb+srv://dbUser:Wyl96524@cluster0.6av08.mongodb.net/sample_restaurants?retryWrites=true&w=majority");
 
 
 //middleware
