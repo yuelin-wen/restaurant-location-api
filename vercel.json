@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "user-api",
+    "name": "restaurantapi",
     "builds": [
        { "src": "server.js", "use": "@vercel/node" }
     ],
